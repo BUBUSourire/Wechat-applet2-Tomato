@@ -3,5 +3,14 @@
 const app = getApp()
 
 Page({
- 
+    data: {
+        lists: [],
+        visible: true
+    },
+    confirm(e) {
+        console.log(e.detail)
+    },
+    cancel(e) {
+        console.log(e.detail)
+    }
 })

@@ -1,7 +1,8 @@
 {
     "pages": [
         "pages/home/home",
-        "pages/test/test"
+        "pages/test/test",
+        "components/confirm/confirm"
     ],
     "window": {
         "backgroundTextStyle": "light",
