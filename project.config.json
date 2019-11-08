@@ -43,9 +43,10 @@
 			"current": 0,
 			"list": [
 				{
-					"id": -1,
-					"name": "单页",
-					"pathName": "components/button/button",
+					"id": 0,
+					"name": "pages/clock/clock",
+					"pathName": "pages/clock/clock",
+					"query": "",
 					"scene": null
 				}
 			]

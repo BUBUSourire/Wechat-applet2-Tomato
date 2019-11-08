@@ -1,1 +1,2 @@
 <g-button text="创建任务" type="change" size="mini"></g-button>
+<g-clock text="点击开始闹钟"></g-clock>
