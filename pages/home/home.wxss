@@ -1,3 +1,73 @@
-@import '/components/button/button.wxss';
-@import '/components/clock/clock.wxss';
-@import '/components/confirm/confirm.wxss'
+.home-container {
+    height: 600rpx;
+    padding: 10rpx;
+    background: #f6f6f6;
+}
+
+.todoList {
+    height: 575rpx;
+}
+
+.todoList view {
+    height: 80rpx;
+    line-height: 80rpx;
+    padding: 10rpx;
+}
+
+.todoList .item {
+    background: #fff;
+    display: flex;
+    align-items: center;
+    border-radius: 15rpx;
+    margin: 20rpx 0;
+    font-size: 12px;
+    padding: 0 20rpx;
+}
+
+.todoList view .select.default {
+    width: 17rpx;
+    height: 17rpx;
+    border: 1rpx solid #f8765d;
+    border-radius: 50%;
+}
+
+.item .select.active {
+    width: 17rpx;
+    height: 17rpx;
+    background-color: #fff;
+    border-radius: 50%;
+    border: 1rpx solid #f8765d;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.item .select.active::after {
+    content: '';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 17rpx;
+    height: 17rpx;
+    background: #f8765d;
+    border-radius: 50%;
+}
+
+.item text {
+    margin-left: 20rpx;
+}
+
+.component {
+    position: relative;
+    background: #f6f6f6;
+    height: 100%;
+}
+
+.clock {
+    margin:0 auto;
+    width: 90%;
+}
+
+.create {
+    margin-top: -60%;
+}
