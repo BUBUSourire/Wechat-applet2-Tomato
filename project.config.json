@@ -39,13 +39,17 @@
 			"currentL": -1,
 			"list": []
 		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
 		"miniprogram": {
 			"current": 0,
 			"list": [
 				{
 					"id": 0,
-					"name": "pages/clock/clock",
-					"pathName": "pages/clock/clock",
+					"name": "pages/tomato/tomato",
+					"pathName": "pages/tomato/tomato",
 					"query": "",
 					"scene": null
 				}

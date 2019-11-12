@@ -2,6 +2,7 @@
     height: 600rpx;
     padding: 10rpx;
     background: #f6f6f6;
+    box-shadow: -1px 17px 29px -4px rgba(255,255,255,1) inset;
 }
 
 .todoList {
@@ -22,6 +23,7 @@
     margin: 20rpx 0;
     font-size: 12px;
     padding: 0 20rpx;
+    box-shadow: 0px -2px 12px -4px rgba(138,138,138,0.3);
 }
 
 .todoList view .select.default {
@@ -66,6 +68,8 @@
 .clock {
     margin:0 auto;
     width: 90%;
+    box-shadow: 0px -2px 12px -4px rgba(138,138,138,0.3);
+     background: #EEF7F6;
 }
 
 .create {

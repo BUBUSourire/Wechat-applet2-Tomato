@@ -8,13 +8,13 @@
 </view>
 
 <view class="component">
-    <view class="clock">
+    <navigator class="clock" url="/pages/tomato/tomato">
         <g-clock text="点击开始闹钟"></g-clock>
-    </view>
+    </navigator>
     <view class="create">
         <g-button text="创建任务" type="change" size="mini" bindtap="showConfirm"></g-button>
     </view>
 </view>
 
 
-<g-confirm visible="{{visible}}" placeholder="我完成了什么" bindconfirm="confirm" bindcsncel="hideConfirm"></g-confirm>
+<g-confirm visible="{{visible}}" placeholder="我完成了什么" bindconfirm="confirm" bindcancel="hideConfirm"></g-confirm>
