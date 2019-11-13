@@ -1,0 +1,48 @@
+<view class="me-container">
+    <view class="aboutMe">
+        <image src="/images/me.png"></image>
+        <view class="introduce">
+            <text class="special">我 的 名 字</text>
+            <text>绑定pc账号</text>
+        </view>
+        <text>问题反馈</text>
+    </view>
+    <view class="nav">
+        <view class="history" hover-class="active">
+            <text>番茄历史</text>
+        </view>
+        <view class="task" hover-class="active">
+            <text>我完成的任务</text>
+        </view>
+    </view>
+    <view class="content">
+        <text class="special">本周四</text>
+        <view class="detail">
+            <text class="time">14:00</text>
+            <text>技术的女生家啊啊是就算是那架势看俺</text>
+        </view>
+         <view class="detail">
+            <text class="time">14:00</text>
+            <text>技术的女生家啊啊是就算是那架势看俺</text>
+        </view>
+         <view class="detail">
+            <text class="time">14:00</text>
+            <text>技术的女生家啊啊是就算是那架势看俺</text>
+        </view>
+    </view>
+    <view class="content">
+        <text class="special">本周四</text>
+        <view class="detail">
+            <text class="time">14:00</text>
+            <text>技术的女生家啊啊是就算是那架势看俺</text>
+        </view>
+         <view class="detail">
+            <text class="time">14:00</text>
+            <text>技术的女生家啊啊是就算是那架势看俺</text>
+        </view>
+         <view class="detail">
+            <text class="time">14:00</text>
+            <text>技术的女生家啊啊是就算是那架势看俺</text>
+        </view>
+    </view>
+</view>

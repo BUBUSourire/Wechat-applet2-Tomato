@@ -48,8 +48,8 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "pages/tomato/tomato",
-					"pathName": "pages/tomato/tomato",
+					"name": "pages/me/me",
+					"pathName": "pages/me/me",
 					"query": "",
 					"scene": null
 				}
