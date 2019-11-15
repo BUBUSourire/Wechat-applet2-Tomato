@@ -1,0 +1,12 @@
+<view class="login">
+
+    <image src="../../images/me.png"></image>
+
+    <text class="name">我的名字</text>
+
+    <view class="line"></view>
+
+    <button>登录</button>
+
+    <text class="toBind">还没有与pc端绑定？去绑定 ></text>
+</view>
