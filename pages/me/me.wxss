@@ -8,6 +8,7 @@
     display: flex;
     align-items: center;
     padding: 0 50rpx;
+    box-sizing: border-box;
 }
 
 .aboutMe image {
@@ -31,13 +32,22 @@
 .aboutMe .introduce text:nth-child(2) {
     margin-top: 20rpx;
     font-size: 28rpx;
-    color: #F6705A;
+    color: #f6705a;
 }
 
-.aboutMe>text {
+.aboutMe>button {
     font-size: 28rpx;
     position: absolute;
     right: 5%;
+    padding: 0;
+    width: 120rpx;
+    background: transparent;
+    color: #f6705a;
+    min-height: 20rpx;
+}
+
+.aboutMe>button::after {
+    border: none;
 }
 
 .nav {
@@ -46,16 +56,27 @@
     width: 100%;
     background: #fff;
     margin-top: 20rpx;
+    justify-content: center;
+    align-items: center;
 }
 
 .nav view {
     text-align: center;
-    width: 50%;
     position: relative;
+    margin: 0 40rpx;
 }
 
-.active{
-    border-bottom: 8rpx solid rgb(245, 153, 138);
+.active::after {
+    content: '';
+    display: block;
+    width: 100rpx;
+    height: 10rpx;
+    position: absolute;
+    left: 50%;
+    bottom: -30%;
+    transform: translate(-50%,-50%);
+    background: #f6705a;
+    border-radius: 30rpx;
 }
 
 .content {
@@ -73,4 +94,8 @@
 
 .time {
     margin-right: 40rpx;
+}
+
+.describe {
+    margin-top: 20rpx;
 }

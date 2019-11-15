@@ -5,44 +5,21 @@
             <text class="special">我 的 名 字</text>
             <text>绑定pc账号</text>
         </view>
-        <text>问题反馈</text>
+        <button open-type="contact">问题反馈</button>
     </view>
     <view class="nav">
-        <view class="history" hover-class="active">
-            <text>番茄历史</text>
+        <view class="{{tab === 'history' && 'active'}}" data-name="history" bindtap="changeTab">
+            <view>番茄历史</view>
         </view>
-        <view class="task" hover-class="active">
-            <text>我完成的任务</text>
-        </view>
-    </view>
-    <view class="content">
-        <text class="special">本周四</text>
-        <view class="detail">
-            <text class="time">14:00</text>
-            <text>技术的女生家啊啊是就算是那架势看俺</text>
-        </view>
-         <view class="detail">
-            <text class="time">14:00</text>
-            <text>技术的女生家啊啊是就算是那架势看俺</text>
-        </view>
-         <view class="detail">
-            <text class="time">14:00</text>
-            <text>技术的女生家啊啊是就算是那架势看俺</text>
+        <view class="{{tab === 'task' && 'active'}}" data-name="task" bindtap="changeTab">
+            <view>我完成的任务</view>
         </view>
     </view>
-    <view class="content">
-        <text class="special">本周四</text>
-        <view class="detail">
-            <text class="time">14:00</text>
-            <text>技术的女生家啊啊是就算是那架势看俺</text>
-        </view>
-         <view class="detail">
-            <text class="time">14:00</text>
-            <text>技术的女生家啊啊是就算是那架势看俺</text>
-        </view>
-         <view class="detail">
-            <text class="time">14:00</text>
-            <text>技术的女生家啊啊是就算是那架势看俺</text>
+    <view class="content" wx:for="{{lists}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+        <text class="special">{{index}}</text>
+        <view class="detail" wx:for="{{lists[index]}}" wx:for-index="index" wx:key="index">
+            <text class="time">{{item.time}}</text>
+            <text class="describe">{{item.text}}</text>
         </view>
     </view>
 </view>
