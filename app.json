@@ -3,7 +3,8 @@
         "pages/home/home",
         "pages/tomato/tomato",
         "pages/me/me",
-        "pages/login/login"
+        "pages/login/login",
+        "pages/bind/bind"
     ],
     "window": {
         "backgroundTextStyle": "light",
