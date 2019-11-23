@@ -14,13 +14,14 @@ page {
     flex-direction: column;
 }
 
-.login image {
+.login .me {
     width: 240rpx;
     height: 240rpx;
     border-radius: 50%;
     border: 15rpx solid #FE996F;
     margin-top: -20%;
     box-shadow: -2px 7px 27px -9px rgba(89,87,89,0.5);
+    overflow: hidden;
 }
 
 .login .name {

@@ -1,66 +1,45 @@
-// pages/login/login.js
+const {
+    http
+} = require('../../libs/http.js')
+const {
+    app_id,
+    app_secret
+} = getApp().globalData
 Page({
-
-    /**
-     * 页面的初始数据
-     */
-    data: {
+    data: {},
+    onShow() {
 
     },
-
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad: function (options) {
-
+    // 点击按钮=>调用小程序中的原生wx.login=>获取参数=>http.post将参数发送给服务器=>返回user=>保存user=>返回首页
+    login(e) {
+        let iv = e.detail.iv
+        let encryptedData = e.detail.encryptedData
+        this.wxlogin(iv, encryptedData)
     },
-
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
-
+    wxlogin(encryptedData, iv) {
+        wx.login({
+            success: (response) => {
+                this.loginMe(response.code, iv, encryptedData)
+            }
+        })
     },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
+    loginMe(code, iv, encryptedData) {
+        http.post('/sign_in/mini_program_user', {
+                code,
+                iv,
+                encryptedData,
+                app_id,
+                app_secret
+            })
+            .then(response => {
+                this.saveMessage(response)
+                wx.reLaunch({
+                    url: '/pages/home/home',
+                })
+            })
     },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function () {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function () {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
-
+    saveMessage(response) {
+        wx.setStorageSync('me', response.data.resource)
+        wx.setStorageSync('X-token', response.header["X-token"])
     }
 })
