@@ -11,21 +11,21 @@ Page({
         timeStatus: true,
         visible: false,
         showMe: true,
-        finishVisible:false
+        finishVisible: false
     },
 
-    onShow: function() {
+    onShow: function () {
         this.countDown()
     },
 
     countDown() {
         this.timer = setInterval(() => {
             this.data.defaultSecond--
-                this.changeTime()
+            this.changeTime()
             if (this.data.defaultSecond <= 0) {
                 this.setData({
                     showMe: false,
-                    finishVisible:true
+                    finishVisible: true
                 })
                 return this.stopTime()
             }
@@ -96,12 +96,12 @@ Page({
 
     abandonConfirm(e) {
         let content = e.detail
-       wx.navigateBack({ //返回上一页
-           to:-1
-       })
+        wx.navigateBack({ //返回上一页
+            to: -1
+        })
     },
 
-    finishConfirm(e){
+    finishConfirm(e) {
         console.log(e)
     }
 })

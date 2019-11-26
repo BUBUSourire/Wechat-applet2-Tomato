@@ -1,71 +1,125 @@
 //index.js
 //获取应用实例
 const app = getApp()
+const {
+    http
+} = require('../../libs/http.js')
 
 Page({
+    updateId: '',
+    updateIndex: '',
+    description:'',
     data: {
-        lists: [{
-                id: 0,
-                text: "111111",
-                finished: true
-            },
-            {
-                id: 1,
-                text: "222222",
-                finished: true
-            },
-            {
-                id: 2,
-                text: "333333",
-                finished: false
-            },
-            {
-                id: 3,
-                text: "444444",
-                finished: true
-            },
-            {
-                id: 4,
-                text: "555555",
-                finished: false
-            },
-
-        ],
-        visible: false
+        lists: [],
+        visibleCreateConfirm: false,
+        visibleUpdateConfirm: false,
+        updateContent: '',
+        selectTab: ''
     },
-    confirm(e) {
-        console.log(e.detail)
-        let content = e.detail
-
-        if (content) {
-            let todo = [{
-                id: this.data.lists.length + 1,
-                text: content,
-                finished: false
-            }]
-            this.data.lists = todo.concat(this.data.lists)
-            this.setData({
-                lists: this.data.lists
-            })
-            this.hideConfirm()
+    onShow() {
+        this.getLists()
+        if (!this.data.lists.length) {
+            this.setData({ selectTab: '' })
         }
     },
-    deleteTodo(e){
-        console.log(e)
+    getLists(){ //初始化
+        http.get('/todos?completed=false').then(response => {
+            if (response.data.resources) {
+                this.data.lists = response.data.resources
+                this.setData({
+                    lists: this.data.lists
+                })
+                this.hideCreateConfirm()
+            }
+        })
+    },
+
+    confirmCreate(e) { //确认创建
+        let content = e.detail
+        if (content) {
+            http.post('/todos', {
+                completed: false,
+                description: content
+            }).then(res => {
+                let todo = [res.data.resource]
+                this.data.lists = todo.concat(this.data.lists)
+                this.setData({
+                    lists: this.data.lists
+                })
+                this.hideCreateConfirm()
+            })
+        }
+    },
+
+    changeText(e) { //更新任务内容
+        let {
+            id,
+            index
+        } = e.currentTarget.dataset
+        this.updateId = id
+        let description = this.data.lists[index].description
+        this.setData({
+            visibleUpdateConfirm: true,
+            updateContent: description
+        })
+    },
+
+    confirmUpdate(e) { //确认更新
+        let description = e.detail
+        if (description) {
+            let description = e.detail
+            http.put(`/todos/${this.updateId}`, {
+                description:description
+            }).then(response => {
+                this.getLists()
+                this.hideUpdateConfirm()
+                wx.showToast({
+                    title: '修改成功',
+                    icon: 'success',
+                    duration: 1000
+                })
+            })
+        }
+
+    },
+
+    deleteTodo(e) {
         let index = e.currentTarget.dataset.index
-        this.data.lists[index].finished = true
+        let id = e.currentTarget.dataset.id
         this.setData({
-            lists:this.data.lists
+            selectTab: index
+        })
+        setTimeout(() => {
+            http.put(`/todos/${id}`, {
+                completed: true
+            }).then(response => {
+                let todo = response.data.resource
+                this.data.lists[index] = todo
+                this.setData({
+                    lists: this.data.lists
+                })
+                wx.showToast({
+                    title: '已完成',
+                    icon: 'success',
+                    duration: 1000
+                })
+            })
+        }, 1000)
+
+    },
+    hideCreateConfirm() {
+        this.setData({
+            visibleCreateConfirm: false
         })
     },
-   hideConfirm() {
+    showCreateConfirm() {
         this.setData({
-            visible: false
+            visibleCreateConfirm: true
         })
     },
-    showConfirm() {
+    hideUpdateConfirm() {
         this.setData({
-            visible: true
+            visibleUpdateConfirm: false
         })
     }
 })

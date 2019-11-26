@@ -11,10 +11,12 @@
     box-sizing: border-box;
 }
 
-.aboutMe image {
+.aboutMe .picture {
     width: 120rpx;
     height: 120rpx;
     margin-right: 30rpx;
+    overflow: hidden;
+    border-radius: 100%;
 }
 
 .aboutMe .introduce {
@@ -23,7 +25,7 @@
     font-size: 32rpx;
 }
 
-.aboutMe .introduce text:nth-child(2) {
+.aboutMe .introduce navigator {
     margin-top: 20rpx;
     font-size: 28rpx;
     color: #f6705a;
@@ -68,22 +70,25 @@
     position: absolute;
     left: 50%;
     bottom: -30%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     background: #fa9a8b;
     border-radius: 30rpx;
 }
 
 .content {
-    width: 90%;
     background: #fff;
     padding: 50rpx;
-    margin-top: 20rpx;
+    margin: 30rpx;
+    border-radius: 30rpx;
 }
 
 .content .detail {
     display: flex;
     align-items: center;
     flex-direction: row;
+    margin: 10px 0;
+    border-bottom: 1px solid #ccc;
+    font-size: 13px;
 }
 
 .time {

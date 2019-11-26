@@ -1,12 +1,12 @@
 <view class="bind">
-    <text class="special">{{bindOr}}</text>
+    <text>{{bindOr}}</text>
     <view>
-        <input type="text" id="account" name="account" placeholder="账号" value="{{account}}" bindtap="watchAccount"></input>
-        <input type="text" id="password" name="password" placeholder="密码" value="{{password}}" bindtap="watchPassword"></input>
+        <input type="text" id="account" name="account" placeholder="账号" value="{{account}}" bindinput="watchAccount"></input>
+        <input type="text" id="password" name="password" placeholder="密码" value="{{password}}" bindinput="watchPassword"></input>
     </view>
-    <button>{{butttonName}}</button>
+    <g-button text="{{butttonName}}" type="change" size="mini" bindtap="submit"></g-button>
     <image src="/images/tomato.png"></image>
-    <view class="registerFirst" bindtap="registerFirst">还没有PC账号，
+    <view class="registerFirst" bindtap="registerFirst">绑定PC账号，
         <text>{{changeIt}}</text>
     </view>
 </view>

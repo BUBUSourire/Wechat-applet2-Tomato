@@ -7,14 +7,14 @@
 .bind input {
     width: 600rpx;
     padding: 20rpx;
-    border: 1px solid rgb(245, 173, 162);
+    border: 1.5px solid rgb(245, 173, 162);
     border-radius: 20rpx;
     font-size: 32rpx;
     margin: 80rpx 0;
     color: #f6705a;
 }
 
-button {
+g-button {
     width: 360rpx !important;
     height: 80rpx;
     border-radius: 16rpx;
@@ -23,7 +23,7 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 100rpx 0 50rpx 0;
+    margin: 100rpx auto;
     background: linear-gradient(to right, #ef9b75, #f6705a);
     box-shadow: 0px 11px 32px 0px rgba(246, 112, 90, 0.30);
 }

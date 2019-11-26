@@ -2,27 +2,31 @@ Component({
     properties: {
         placeholder: {
             type: String,
-            value: ''
+            value: ""
         },
         visible: {
             type: Boolean,
             value: true
+        },
+        value: {
+            type: String,
+            value: ''
         }
     },
     data: {
-        value: ''
+        _value: ""
     },
     methods: {
+        watchValue(event) {
+            this.data._value = event.detail.value
+        },
         confirm() {
-            this.triggerEvent('confirm', this.data.value) //子组件向父组件传递数据，相当于vue中的emit
+            this.triggerEvent('confirm', this.data._value)
+            this.data._value = ''
         },
         cancel() {
-            this.setData({
-                visible: false
-            })
-        },
-        watchValue(e) {
-            this.data.value = e.detail.value
+            this.triggerEvent('cancel', this.data._value)
+            this.data._value = ''
         }
     }
 })

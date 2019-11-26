@@ -1,3 +1,7 @@
+page {
+    background: #F7F5F7;
+}
+
 .container {
   height: 100%;
   display: flex;
@@ -6,4 +10,8 @@
   justify-content: space-between;
   padding: 200rpx 0;
   box-sizing: border-box;
-} 
+}
+
+.special {
+ background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 43%,rgba(255,255,255,1) 47%,rgba(255,255,255,1) 47%,rgba(255,255,255,1) 48%,rgba(255,255,255,1) 48%,rgba(255,255,255,1) 49%,rgba(255,255,255,1) 53%,rgb(248, 168, 156) 100%);
+}

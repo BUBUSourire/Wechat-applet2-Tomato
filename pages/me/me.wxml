@@ -1,25 +1,43 @@
 <view class="me-container">
     <view class="aboutMe">
-        <image src="/images/me.png"></image>
+        <view class="picture">
+            <open-data type='userAvatarUrl'></open-data>
+        </view>
         <view class="introduce">
-            <text class="special">我 的 名 字</text>
-            <text>绑定pc账号</text>
+            <open-data type='userNickName' class="special"></open-data>
+            <navigator url="/pages/bind/bind">
+                <text>绑定pc账号</text>
+            </navigator>
         </view>
         <button open-type="contact">问题反馈</button>
     </view>
     <view class="nav">
-        <view class="{{tab === 'history' && 'active'}}" data-name="history" bindtap="changeTab">
+        <view class="{{tab === 'task' && 'active'}}" data-name="task" bindtap="changeTab">
             <view>番茄历史</view>
         </view>
-        <view class="{{tab === 'task' && 'active'}}" data-name="task" bindtap="changeTab">
+        <view class="{{tab === 'tomato' && 'active'}}" data-name="tomato" bindtap="changeTab">
             <view>我完成的任务</view>
         </view>
     </view>
-    <view class="content" wx:for="{{lists}}" wx:for-item="item" wx:for-index="index" wx:key="index">
-        <text class="special">{{index}}</text>
-        <view class="detail" wx:for="{{lists[index]}}" wx:for-index="index" wx:key="index">
-            <text class="time">{{item.time}}</text>
-            <text class="describe">{{item.text}}</text>
+    <scroll-view wx:if="{{tab === 'tomato'}}">
+        <view class="content" wx:for="{{tomatoes}}" wx:for-item="item" wx:for-index="key" wx:key="index">
+            <wxs src="../../libs/formattor.wxs" module="formattor"></wxs>
+            <text class="special">{{formattor.monthFormat(key)}}</text>
+            <view class="detail" wx:for="{{tomatoes[key]}}" wx:for-index="index" wx:key="index">
+                <text class="time">{{formattor.dateFormat(item.created_at,"hh:mm:ss")}}</text>
+                <text class="describe">{{item.description}}</text>
+            </view>
         </view>
-    </view>
+    </scroll-view>
+
+    <scroll-view wx:if="{{tab === 'task'}}">
+        <view class="content" wx:for="{{todos}}" wx:for-item="item" wx:for-index="key" wx:key="index">
+            <wxs src="../../libs/formattor.wxs" module="formattor"></wxs>
+            <text class="special">{{formattor.monthFormat(key)}}</text>
+            <view class="detail" wx:for="{{todos[key]}}" wx:for-index="index" wx:key="index">
+                <text class="time">{{formattor.dateFormat(item.created_at,"hh:mm:ss")}}</text>
+                <text class="describe">{{item.description}}</text>
+            </view>
+        </view>
+    </scroll-view>
 </view>

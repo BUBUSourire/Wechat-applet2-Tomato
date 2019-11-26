@@ -1,43 +1,47 @@
-// pages/test/test.js
+const {
+    http
+} = require('../../libs/http.js')
+
+
+
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        tab: "history",
-        lists: {
-            "本周四": [{
-                    time: "14:00",
-                    text: "技术的女生家啊啊是就算是那架势看俺1",
-                    id: 1
-                },
-                {
-                    time: "14:00",
-                    text: "技术的女生家啊啊是就算是那架势看俺2",
-                    id: 2
-                },
-            ],
-            "本周五": [{
-                time: "14:00",
-                text: "技术的女生家啊啊是就算是那架势看俺3",
-                id: 3
-            }],
-            "本周六": [{
-                time: "14:00",
-                text: "技术的女生家啊啊是就算是那架势看俺4",
-                id: 4
-            }]
-        }
+        tab: "task",
+        tomatoes: {},
+        todos: {}
+
     },
     onShow: function() {
-
+        this.fetchTomatoes(),
+        this.fetchTodos()
+    },
+    fetchTomatoes() {
+        http.get('/tomatoes', {
+            is_group: 'yes'
+        }).then(res => {
+            this.setData({
+                tomatoes: res.data.resources
+            })
+        })
+    },
+    fetchTodos() {
+        http.get('/todos', {
+            is_group: 'yes'
+        }).then(res => {
+            this.setData({
+                todos: res.data.resources
+            })
+        })
     },
     changeTab(e) {
         console.log(e)
         let name = e.currentTarget.dataset.name
         this.setData({
-            tab:name
+            tab: name
         })
     }
 })
